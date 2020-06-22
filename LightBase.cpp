@@ -9,9 +9,9 @@
 #include<api/event/genericEvent.h>
 #include<I18N.h>
 LIGHTBASE_API unsigned long long GetBDXAPILevel() {
-	return 20200425;
+	return 20200623;
 }
-Logger<stdio_commit> LOG(stdio_commit{ "[BDX] " });
+Logger<stdio_commit> LOG(stdio_commit{ "[BDXPLUS] " });
 static void PrintErrorMessage() {
 	DWORD errorMessageID = ::GetLastError();
 	if (errorMessageID == 0) {
@@ -40,7 +40,9 @@ static void loadall() {
 	static std::vector<std::pair<std::wstring, HMODULE>> libs;
 	using namespace std::filesystem;
 	create_directory("bdxmod");
-	LOG("BedrockX Loaded! version 20200425");
+	LOG("BedrockX Plus Loaded! version 20200623 , support 1.16.1");
+        LOG("BedrockX专业先遣版正在加载!版本20200623,支持1.16.1");
+        LOG("不是假的,不信你自己看");
 	fixupLIBDIR();
 	directory_iterator ent("bdxmod");
 	for (auto& i : ent) {
@@ -102,6 +104,7 @@ static void entry(bool fixcwd) {
 		startWBThread();
 		LOG("Thanks www.rhymc.com for supporting this project");
 		LOG(u8"感谢旋律云MC(rhymc)对本项目的支持");
+                LOG(u8"杰哥不要!")
 	},EvPrio::LOW);
 }
 //#include<stl\format.h>
